@@ -17,10 +17,13 @@
             />
         </div>
         <div class="amount-wrapper">
-            <div class="max-button"
+            <div
                 v-if="modalKey === 'input' && address !== ETH_KEY"
+                class="max-button"
                 @click="setMax"
-            > MAX </div>
+            >
+                MAX
+            </div>
             <span v-else />
             <div
                 v-if="loading"
@@ -45,13 +48,11 @@ import { useStore } from 'vuex';
 import { scale } from '@/utils/helpers';
 
 import AssetIcon from '@/components/AssetIcon.vue';
-import ButtonText from '@/components/ButtonText.vue';
 import Icon from '@/components/Icon.vue';
 
 export default defineComponent({
     components: {
         AssetIcon,
-        ButtonText,
         Icon,
     },
     props: {
