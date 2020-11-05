@@ -1,23 +1,5 @@
 <template>
     <div class="input">
-        <div class="amount-wrapper">
-            <ButtonText
-                v-if="modalKey === 'input' && address !== 'ether'"
-                :text="'max'"
-                @click="setMax"
-            />
-            <span v-else />
-            <div
-                v-if="loading"
-                class="loading"
-            />
-            <input
-                v-else
-                :value="amount"
-                class="amount"
-                @input="handleInputChange($event.target.value)"
-            >
-        </div>
         <div
             class="asset-wrapper"
             @click="openModal"
@@ -33,6 +15,24 @@
                 class="chevron-icon"
                 :title="'chevron'"
             />
+        </div>
+        <div class="amount-wrapper">
+            <div class="max-button"
+                v-if="modalKey === 'input' && address !== ETH_KEY"
+                @click="setMax"
+            > MAX </div>
+            <span v-else />
+            <div
+                v-if="loading"
+                class="loading"
+            />
+            <input
+                v-else
+                :value="amount"
+                placeholder="0.0"
+                class="amount"
+                @input="handleInputChange($event.target.value)"
+            >
         </div>
     </div>
 </template>
@@ -118,7 +118,7 @@ export default defineComponent({
 <style scoped>
 .input {
     display: flex;
-    height: var(--block-height);
+    height: 80px;
     border: 1px solid var(--outline);
     border-radius: 4px;
     background: var(--background-secondary);
@@ -158,18 +158,29 @@ export default defineComponent({
     }
 }
 
+.max-button {
+    color: var(--info);
+    font-size: 12px;
+    border: 1px solid;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
 .amount {
     border: none;
     background: transparent;
     color: var(--text-primary);
-    font-size: 16px;
+    font-size: 24px;
+    width: 200px;
     text-align: right;
     outline: none;
 }
 
 .asset-wrapper {
-    width: 140px;
+    width: 100px;
     display: flex;
+    padding-left: 20px;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
@@ -193,7 +204,7 @@ export default defineComponent({
 }
 
 .asset-symbol {
-    margin-left: 4px;
+    margin-left: 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

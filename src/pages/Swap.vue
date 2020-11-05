@@ -2,9 +2,14 @@
     <div>
         <div class="pair">
             <div>
-                <div class="input-label">
-                    Send
-                    <span v-if="!isExactIn">(approximate)</span>
+                <div class="amount-labels">
+                    <div class="input-label">
+                        Send
+                        <span v-if="!isExactIn">(approximate)</span>
+                    </div>
+                    <div class="balance-label">
+                        Balance: 123.45
+                    </div>
                 </div>
                 <AssetInput
                     v-model:address="tokenInAddressInput"
@@ -22,9 +27,14 @@
                 @click="togglePair"
             />
             <div>
-                <div class="input-label">
-                    Receive
-                    <span v-if="isExactIn">(approximate)</span>
+                <div class="amount-labels">
+                    <div class="input-label">
+                        Receive
+                        <span v-if="isExactIn">(approximate)</span>
+                    </div>
+                    <div class="balance-label">
+                        Balance: 123.45
+                    </div>
                 </div>
                 <AssetInput
                     v-model:address="tokenOutAddressInput"
@@ -161,13 +171,13 @@ export default defineComponent({
         const isInRate = ref(true);
         const isExactIn = ref(true);
         const tokenInAddressInput = ref('');
-        const tokenInAmountInput = ref('10');
+        const tokenInAmountInput = ref('');
         const tokenOutAddressInput = ref('');
         const tokenOutAmountInput = ref('');
         const slippageBufferInput = ref('0.5');
         const slippage = ref(0);
         const buttonLoading = ref(false);
-        const swapsLoading = ref(true);
+        const swapsLoading = ref(false);
         const slippageBufferInputShown = ref(false);
         const swaps = ref([]);
 
@@ -680,10 +690,21 @@ export default defineComponent({
     border-radius: var(--border-radius);
 }
 
+.amount-labels {
+    display: flex;
+}
+
 .input-label {
     margin-bottom: 4px;
     color: var(--text-secondary);
     font-size: 14px;
+}
+
+.balance-label {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-left: auto;
+    justify-content: right;
 }
 
 .chevron-icon {
