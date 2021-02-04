@@ -1,17 +1,17 @@
 {
-    "network": "homestead",
-    "chainId": 1,
+    "network": "xdai",
+    "chainId": 100,
     "precision": 6,
     "infuraKey": "237c3102f39b4940abbe12dc49165cd6",
     "alchemyKey": "cQGZUiTLRCFsQS7kbRxPJK4eH4fTTu88",
     "subgraphUrl": "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer",
     "subgraphBackupUrl": "https://ipfs.fleek.co/ipns/balancer-bucket.storage.fleek.co/balancer-exchange/pools",
     "addresses": {
-        "bFactory": "0x9424B1412450D0f8Fc2255FAf6046b98213B76Bd",
+        "bFactory": "0x9Ad32bf5DaFe152Cbe027398219611DB4E8753B3",
         "bActions": "0xde4A25A0b9589689945d842c5ba0CF4f0D4eB3ac",
         "dsProxyRegistry": "0x4678f0a6958e4D2Bc4F1BAF7Bc52E8F3564f3fE4",
-        "exchangeProxy": "0x3E66B66Fd1d0b02fDa6C811Da9E0547970DB2f21",
-        "weth": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "exchangeProxy": "0x292A6375d6587883bBcabD96860b1834BA14601E",
+        "weth": "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d",
         "multicall": "0xeefBa1e63905eF1D7ACbA5a8513c70307C1cE441"
     },
     "connectors": {
